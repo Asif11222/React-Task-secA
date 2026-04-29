@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@600&display=swap');
+
+:root {
+  --bg: #f2f4f8;
+  --surface: #ffffff;
+  --surface-soft: #f7f9fc;
+  --text: #1c2330;
+  --muted: #5a6776;
+  --border: #d6dbe3;
+  --accent: #2c6fbe;
+  --accent-soft: rgba(44, 111, 190, 0.12);
+  --shadow: 0 12px 30px rgba(28, 35, 48, 0.12);
+  --sans: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --heading: 'Playfair Display', 'Times New Roman', serif;
+
+  font: 16px/1.55 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(44, 111, 190, 0.12), transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(255, 196, 69, 0.18), transparent 40%),
+    var(--bg);
+  min-height: 100svh;
+}
+
+#root {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  min-height: 100svh;
+}
+
+h1 {
+  font-family: var(--heading);
+  font-size: 36px;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--text);
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: var(--sans);
+  cursor: pointer;
+}
