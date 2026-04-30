@@ -3,7 +3,7 @@ import './App.css'
 
 const defaultStudent = {
   id: '22-47752-2',
-  cgpa: 0.00,
+  cgpa: '',
   semester: 'Spring',
   credit: 14,
   courses: [
@@ -36,6 +36,13 @@ function App() {
 
   const handleFieldChange = (event) => {
     const { name, value } = event.target
+    if (name === 'cgpa' && value === '') {
+      setStudent((prev) => ({
+        ...prev,
+        [name]: '',
+      }))
+      return
+    }
     setStudent((prev) => ({
       ...prev,
       [name]: name === 'cgpa' || name === 'credit' ? Number(value) : value,
@@ -78,7 +85,10 @@ function App() {
 
       <section className="cards">
         <InfoCard title="Student ID" value={student.id} />
-        <InfoCard title="CGPA" value={student.cgpa.toFixed(2)} />
+        <InfoCard
+          title="CGPA"
+          value={student.cgpa === '' ? '--' : Number(student.cgpa).toFixed(2)}
+        />
       </section>
 
       <section className="panel">
@@ -103,6 +113,8 @@ function App() {
             <input
               name="cgpa"
               type="number"
+              inputMode="decimal"
+              pattern="[0-9]*"
               step="0.01"
               value={student.cgpa}
               onChange={handleFieldChange}
